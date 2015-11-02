@@ -1,0 +1,92 @@
+'use strict';
+
+/**
+ * @ngdoc overview
+ * @name Rolnik
+ * @description
+ * # Initializes main application and routing
+ *
+ * Main module of the application.
+ */
+
+
+angular.module('Rolnik')
+	.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
+	    // register $http interceptors, if any. e.g.
+	    // $httpProvider.interceptors.push('interceptor-name');
+
+	    // Application routing
+	    $stateProvider
+	      .state('ionic', {
+	        url: '',
+	        abstract: true,
+	        templateUrl: 'templates/main.html'
+	      })
+	      .state('ionic.home', {
+	        url: '/home',
+	        cache: true,
+	        views: {
+	          'viewContent': {
+	            templateUrl: 'templates/views/home.html',
+	            controller: 'HomeController'
+	          }
+	        }
+	      })
+	      .state('ionic.start', {
+	        url: '/start',
+	        cache: true,
+	        views: {
+	          'viewContent': {
+	            templateUrl: 'templates/start/start.html',
+	            controller: 'StartController as startCtrl'
+	          }
+	        }
+	      })
+	      .state('ionic.choose', {
+	        url: '/choose',
+	        views: {
+	          'viewContent': {
+	            templateUrl: 'templates/choose/choose.html',
+	            controller: 'ChooseController as chooseCtrl'
+	          }
+	        }
+	        // ,
+	        // resolve: {
+	        //   // ProductsResource: function () {
+	        //   //   return [{"name": "aaa"},{"name": "aaa"}];
+	        //   //   // return ProductsResource.get({id: 1}).$promise;
+	        //   // }
+	        // }
+	      })
+	      .state('ionic.new', {
+	        url: '/new',
+	        cache: true,
+	        views: {
+	          'viewContent': {
+	            templateUrl: 'templates/choose/add-new.html',
+	            controller: 'AddNewController as newCtrl'
+	          }
+	        }
+	        // ,
+	        // resolve: {
+	        //   // ProductsResource: function () {
+	        //   //   return [{"name": "aaa"},{"name": "aaa"}];
+	        //   //   // return ProductsResource.get({id: 1}).$promise;
+	        //   // }
+	        // }
+	      })
+	      .state('ionic.settings', {
+	        url: '/settings',
+	        cache: true,
+	        views: {
+	          'viewContent': {
+	            templateUrl: 'templates/views/settings.html',
+	            controller: 'SettingsController'
+	          }
+	        }
+	      });
+
+
+	    // redirects to default route for undefined routes
+	    $urlRouterProvider.otherwise('/start');
+	  });

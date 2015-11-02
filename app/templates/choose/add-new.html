@@ -1,0 +1,46 @@
+<ion-view id="newTemplate">
+
+    <!-- <ion-nav-buttons side="primary">
+      <button class="button button-clear" ng-click="doSomething()">
+        Zapisz
+      </button>
+    </ion-nav-buttons> -->
+
+    <ion-nav-title>
+      Wybierz produkty
+    </ion-nav-title>
+
+    <ion-content clas>
+      <div>
+          <div class="item item-input-inset">
+            <label class="item-input-wrapper">
+              <i class="icon ion-search placeholder-icon"></i>
+              <input type="text" placeholder="Wpisz nazwę" ng-model="newCtrl.searchKey" ng-change="newCtrl.search()">
+            </label>
+            <button class="button button-small button-clear" ng-click="newCtrl.clearSearch()">
+              X
+            </button>
+          </div>
+      </div>
+      <ion-list>
+          <ion-item ng-repeat="product in newCtrl.foundProducts" type="item-text-wrap" href="#/product/{{product.id}}">
+            <div class="choose-product-item">
+              <div class="choose-product-item-text">
+                <h3>{{product.name}} ({{product.unit}})</h3>
+                <p>podtytuł</p>
+              </div>
+              <a class="button button-small button-icon positive icon ion-plus icon-custom-sm" ng-click="newCtrl.addSelectedProduct(product)"></a>
+            </div>
+          </ion-item>
+      </list>
+    </ion-list>
+
+</ion-view>
+        
+
+        <!-- <div id="newTemplate" class="">
+          
+        	<button ui-sref="ionic.choose" class="button button-calm">
+            Informacje o produkcie
+          </button>
+        </div> -->

@@ -1,0 +1,17 @@
+/**
+ * Define icons here, needs to be imported before _variables.scss
+ */
+
+.icon.icon-custom-sm {
+	&:before {
+		font-size: $iconSize_sm !important;
+	}
+}
+
+.icon.icon-custom-md {
+	&:before {
+		font-size: $iconSize_md !important;
+	}
+}
+
+

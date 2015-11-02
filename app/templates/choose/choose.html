@@ -1,0 +1,34 @@
+<ion-view>
+
+    <ion-nav-title>
+        <h1 class="title">Wybierz produkty</h1>
+    </ion-nav-title>
+
+	  <fab-button target-id="chooseTemplate" class="button button-assertive" ui-sref="ionic.new">
+      <i class="icon ion ion-android-add"></i>
+    </fab-button>
+
+    <ion-content>
+      <div id="chooseTemplate" class="padding">
+        <div class="card" ng-repeat="product in chooseCtrl.selectedProducts">
+          <div class="item item-text-wrap">
+            <div class="card-header">
+              <h3>{{product.name}} <small>({{product.unit}})</small></h3>
+              <div class="card-header-icons">
+                <a class="button button-small button-icon icon ion-trash-b assertive icon-custom-md" ng-click="chooseCtrl.deleteProduct(product)"></a>
+                <a class="button button-small button-icon icon ion-gear-a dark icon-custom-md"></a>
+              </div>
+            </div>
+            <p>{{product.count}} szt.</p>
+          </div>
+        </div>
+
+        <div class="card" ng-if="chooseCtrl.selectedProducts.length < 1">
+          <div class="item item-text-wrap">
+            <h3>Nie wybrano żadnych produktów</h3>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+
+</ion-view>

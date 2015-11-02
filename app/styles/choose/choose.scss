@@ -1,0 +1,30 @@
+@import "fab-button.scss";
+@import "../ionic-styles";
+
+#chooseTemplate {
+
+	.card {
+		border-top: 0.2rem solid $positive;
+
+		.card-header {
+			display: flex;
+
+			h3 {
+				flex: 1;
+			}
+		}
+	}
+	
+}
+
+#newTemplate {
+
+	.choose-product-item {
+		display: flex;
+
+		.choose-product-item-text {
+			flex: 1;
+		}
+	}
+
+}
