@@ -84,6 +84,16 @@ angular.module('Rolnik')
 	            controller: 'SettingsController'
 	          }
 	        }
+	      })
+	      .state('ionic.delivery', {
+	        url: '/delivery',
+	        cache: true,
+	        views: {
+	          'viewContent': {
+	            templateUrl: 'templates/delivery/delivery.html',
+	            controller: 'DeliveryController as deliveryCtrl'
+	          }
+	        }
 	      });
 
 

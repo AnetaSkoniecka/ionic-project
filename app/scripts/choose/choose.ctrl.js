@@ -17,6 +17,8 @@ function ChooseController($scope, SelectedProductsFactory) {
 
 	//methods
 	vm.deleteProduct = deleteProduct;
+    vm.addCount = addCount;
+    vm.substractCount = substractCount;
 
 	activate();
 
@@ -26,6 +28,19 @@ function ChooseController($scope, SelectedProductsFactory) {
 
     function deleteProduct(product) {
     	SelectedProductsFactory.removeProduct(product.id);
+    }
+
+    function addCount(product) {
+        product.count = product.count + 1;
+    }
+
+    function substractCount(product) {
+        if(product.count < 0) {
+            product.count = 0;
+        }
+        else if(product.count > 0) {
+            product.count = product.count - 1;
+        }
     }
 
 }

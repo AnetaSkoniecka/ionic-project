@@ -13,6 +13,20 @@
 				flex: 1;
 			}
 		}
+
+		.counts-container {
+			display: inline-flex;
+    		align-items: center;    		
+		}
+
+		.buttons-wrapper {
+			margin-left: 0.5rem;
+		}
+
+		.cound-danger {
+			color: $assertive;
+		}
+
 	}
 	
 }
