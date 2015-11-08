@@ -7,7 +7,43 @@
     <ion-content>
       <div id="optimizationTemplate" class="">
         
-        fgh
+        <div class="card">
+        	<div class="item item-divider">
+		    	Podsumowanie
+		  	</div>
+	        <ul class="list">
+			    <li class="item">
+			    	Koszt zakupu: <span class="positive">{{optimizationCtrl.OptimizationResult.purchasingCost}}</span>
+			    </li>
+			    <li class="item">
+			    	Koszt dostawy: <span class="positive">{{optimizationCtrl.OptimizationResult.deliveryCost}}</span>
+			    </li>
+			    <li class="item">
+			    	Łączna odległość: <span class="positive">{{optimizationCtrl.OptimizationResult.totalDistance}}</span>
+			    </li>
+			    <li class="item">
+			    	Ilość sklepów: <span class="positive">{{optimizationCtrl.OptimizationResult.totalShops}}</span>
+			    </li>
+			</ul>
+		</div>
+
+		<div class="card" ng-repeat="shop in optimizationCtrl.OptimizationResult.shops">
+        	<div class="item item-divider">
+		    	{{shop.shopName}}
+		    	<span class="price">łącznie: {{shop.purchasingCost}}zł</span>
+		  	</div>
+	        <ul class="list">
+	    		<li class="item" ng-repeat="product in shop.products">
+	    			<span class="name">{{product.name}} <small>(szt. {{product.count}})</small></span>
+					<span class="price">{{product.cost}}zł</span>
+			    </li>
+			</ul>
+			<div class="item item-divider">
+			    odległość/dostawa: <span class="price">{{shop.totalDistance}}km/{{shop.deliveryCost}}zł</span>
+			</div>
+		</div>
+
+
 
       </div>
     </ion-content>

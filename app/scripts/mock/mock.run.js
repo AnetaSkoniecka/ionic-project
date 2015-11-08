@@ -176,6 +176,59 @@ mock.selectedProducts = [
         {"id": 12, "firstName": "Steven", "lastName": "Wells", "managerId": 4, "managerName": "John Williams", "reports": 0, "title": "Software Architect", "department": "Engineering", "cellPhone": "617-000-0012", "officePhone": "781-000-0012", "email": "swells@fakemail.com", "city": "Boston, MA", "pic": "Steven_Wells.jpg", "twitterId": "@fakeswells", "blog": "http://coenraets.org"}
     ];
 
+    var optimization = {
+		"deliveryCost": 300,
+		"purchasingCost": 200,
+		"totalDistance": 34,
+		"totalShops": 3,
+		"shops": [
+			{
+				"shopName": "shopA",
+				"deliveryCost": 300,
+				"purchasingCost": 200,
+				"totalDistance": 34,
+				"products": [
+    				{
+						"id": 9,
+						"name": "Nazwa1",
+						"unit": "1 kg",
+						"count": "2",
+						"cost": 30
+					},
+					{
+						"id": 10,
+						"name": "Nazwa2",
+						"unit": "1 kg",
+						"count": "2",
+						"cost": 30
+					}
+				]
+			},
+			{
+				"shopName": "shopB",
+				"deliveryCost": 300,
+				"purchasingCost": 200,
+				"totalDistance": 34,
+				"products": [
+    				{
+						"id": 9,
+						"name": "Nazwa1",
+						"unit": "1 kg",
+						"count": "2",
+						"cost": 30
+					},
+					{
+						"id": 10,
+						"name": "Nazwa2",
+						"unit": "1 kg",
+						"count": "2",
+						"cost": 30
+					}
+				]
+			}
+		]
+	};
+
     
     function findAll() {
         return mock.selectedProducts;
@@ -191,9 +244,7 @@ mock.selectedProducts = [
 
     function optimizationResult() {
     	sleep(3000);
-    	return [
-    		{"aa":"aa"}
-    	];
+    	return optimization;
     }
 
     function sleep(milliseconds) {

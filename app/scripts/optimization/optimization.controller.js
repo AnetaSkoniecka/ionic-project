@@ -9,16 +9,17 @@
 angular.module('Rolnik')
   .controller('OptimizationController', OptimizationController);
 
-function OptimizationController(item) {
+function OptimizationController(OptimizationResult) {
 	var vm = this;
 
 	// variables
-	vm.item = item;
+	vm.OptimizationResult = OptimizationResult;
 	//methods
 
 	activate();
 
     function activate() {
+    	console.log(OptimizationResult)
     }
 
 }

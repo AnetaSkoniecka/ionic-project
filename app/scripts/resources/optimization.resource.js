@@ -30,7 +30,7 @@ function OptimizationResource($resource) {
     {   
       optimize: {
         method: 'POST',
-        isArray: true
+        isArray: false
       }
     });
   return resource;
