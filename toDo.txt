@@ -1,0 +1,2 @@
+1. Ekran choose
+	- przycisk "Dalej" ukryty gdy nie ma zadnych produktów wybranych
