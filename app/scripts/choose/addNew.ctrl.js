@@ -53,11 +53,9 @@ function AddNewController($scope, $state, SearchProductsResource, SelectedProduc
         var success = SelectedProductsFactory.addProduct(product);
         if(success) {
             // TODO: przejdz do listy produktow i wyswietl alert z sukcesem
-            console.log("a")
             $state.go("ionic.choose");
         } else {
             // TODO: wyswietla alert o niepowodzeniu
-            console.log("b")
         }
     }
 }

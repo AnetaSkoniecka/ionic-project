@@ -16,7 +16,6 @@ function SelectedProductsFactory() {
 	factory.options.shopsCountRestrictionIsSet = false;
 	factory.options.distanceRestrictionValue = 0;
 	factory.options.distanceRestrictionIsSet = false;
-	factory.options.discount = false;
 
 	factory.addProduct = function(product) {
 		var repeat = _.findWhere(factory.selectedProducts, { 'id': product.id });
@@ -61,6 +60,19 @@ function SelectedProductsFactory() {
 		else {
 			factory.options.distanceRestrictionValue = 0;
 		}
+	}
+
+	factory.getOptimizationConfiguration = function() {
+		var data = {
+			productsId: _(factory.selectedProducts).pluck('id'),
+			delivery: factory.options.delivery,
+			discount: factory.options.discount,
+			shopsCountRestrictionValue: factory.options.shopsCountRestrictionValue,
+			shopsCountRestrictionIsSet: factory.options.shopsCountRestrictionIsSet,
+			distanceRestrictionValue: factory.options.distanceRestrictionValue,
+			distanceRestrictionIsSet: factory.options.distanceRestrictionIsSet
+		};
+		return data;
 	}
 
 	return factory;

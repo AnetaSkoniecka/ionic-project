@@ -94,8 +94,9 @@ angular.module('Rolnik')
     			item: function(ItemsService) {
 	    			return ItemsService.getItem()
 	    		},
-	    		aa: function(OptimizationResource) {
-	    			return OptimizationResource.optimize(null,{"aa":"aa"});
+	    		aa: function(OptimizationResource, SelectedProductsFactory, $http) {
+	    			return OptimizationResource.optimize(null,SelectedProductsFactory.getOptimizationConfiguration());
+	    			// return $http.get('http://jsonplaceholder.typicode.com/posts/1');
 	    		}
 	    	}
 	    });
