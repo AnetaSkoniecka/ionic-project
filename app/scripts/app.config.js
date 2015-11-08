@@ -14,15 +14,16 @@ angular.module('Rolnik')
 	.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 	    // register $http interceptors, if any. e.g.
 	    // $httpProvider.interceptors.push('interceptor-name');
+	    $httpProvider.interceptors.push('LoadingInterceptor');
 
 	    // Application routing
 	    $stateProvider
-	      .state('ionic', {
+	    .state('ionic', {
 	        url: '',
 	        abstract: true,
 	        templateUrl: 'templates/main.html'
-	      })
-	      .state('ionic.home', {
+	    })
+	    .state('ionic.home', {
 	        url: '/home',
 	        cache: true,
 	        views: {
@@ -31,8 +32,8 @@ angular.module('Rolnik')
 	            controller: 'HomeController'
 	          }
 	        }
-	      })
-	      .state('ionic.start', {
+	    })
+	    .state('ionic.start', {
 	        url: '/start',
 	        cache: true,
 	        views: {
@@ -41,8 +42,8 @@ angular.module('Rolnik')
 	            controller: 'StartController as startCtrl'
 	          }
 	        }
-	      })
-	      .state('ionic.choose', {
+	    })
+	    .state('ionic.choose', {
 	        url: '/choose',
 	        views: {
 	          'viewContent': {
@@ -50,15 +51,8 @@ angular.module('Rolnik')
 	            controller: 'ChooseController as chooseCtrl'
 	          }
 	        }
-	        // ,
-	        // resolve: {
-	        //   // ProductsResource: function () {
-	        //   //   return [{"name": "aaa"},{"name": "aaa"}];
-	        //   //   // return ProductsResource.get({id: 1}).$promise;
-	        //   // }
-	        // }
-	      })
-	      .state('ionic.new', {
+	    })
+	    .state('ionic.new', {
 	        url: '/new',
 	        cache: true,
 	        views: {
@@ -67,15 +61,8 @@ angular.module('Rolnik')
 	            controller: 'AddNewController as newCtrl'
 	          }
 	        }
-	        // ,
-	        // resolve: {
-	        //   // ProductsResource: function () {
-	        //   //   return [{"name": "aaa"},{"name": "aaa"}];
-	        //   //   // return ProductsResource.get({id: 1}).$promise;
-	        //   // }
-	        // }
-	      })
-	      .state('ionic.settings', {
+	    })
+	    .state('ionic.settings', {
 	        url: '/settings',
 	        cache: true,
 	        views: {
@@ -84,19 +71,41 @@ angular.module('Rolnik')
 	            controller: 'SettingsController'
 	          }
 	        }
-	      })
-	      .state('ionic.delivery', {
-	        url: '/delivery',
+	    })
+	    .state('ionic.options', {
+	        url: '/options',
 	        cache: true,
 	        views: {
 	          'viewContent': {
-	            templateUrl: 'templates/delivery/delivery.html',
-	            controller: 'DeliveryController as deliveryCtrl'
+	            templateUrl: 'templates/options/options.html',
+	            controller: 'OptionsController as optionsCtrl'
 	          }
 	        }
-	      });
+	    })
+	    .state('ionic.optimization', {
+	        url: '/optimization',
+	        views: {
+	          'viewContent': {
+	            templateUrl: 'templates/optimization/optimization.html',
+	            controller: 'OptimizationController as optimizationCtrl'
+	          }
+	        },
+	        resolve: {
+    			item: function(ItemsService) {
+	    			return ItemsService.getItem()
+	    		},
+	    		aa: function(OptimizationResource) {
+	    			return OptimizationResource.optimize(null,{"aa":"aa"});
+	    		}
+	    	}
+	    });
 
 
 	    // redirects to default route for undefined routes
 	    $urlRouterProvider.otherwise('/start');
-	  });
+
+
+	    // Defines interceptors
+
+
+	});

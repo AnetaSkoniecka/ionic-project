@@ -15,7 +15,6 @@ angular.module('Rolnik', [
   'ngCordova', 
   'ion-fab-button', 
   'rolnikMock',
-  // 'jett.ionic.filter.bar',
   'rolnikResources'
 ]);
 

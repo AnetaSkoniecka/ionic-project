@@ -1,0 +1,101 @@
+<ion-view>
+
+    <ion-nav-title>
+      <h1 class="title">Wybierz opcje zakupów</h1>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="primary">
+      <button class="button button-clear button-small" ui-sref="ionic.optimization">
+        Szukaj
+      </button>
+    </ion-nav-buttons>
+
+    <ion-content>
+      <div id="optionsTemplate" class="">
+        
+        <div class="list card">
+          <div class="item item-divider">
+            Wybierz sposób dostawy
+          </div>
+
+          <ul class="list">
+
+            <li class="item item-checkbox">
+               <label class="checkbox">
+                 <input type="radio" name="delivery" value="deliveryHome" ng-model="optionsCtrl.SelectedProductsFactory.options.delivery">
+               </label>
+               Dostawa do domu
+            </li>
+
+            <li class="item item-checkbox">
+               <label class="checkbox">
+                 <input type="radio" name="delivery" value="deliveryOwn" ng--model="optionsCtrl.SelectedProductsFactory.options.delivery">
+               </label>
+               Odbiór osobisty
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="list card">
+          <div class="item item-divider">
+            Określ ograniczenia
+          </div>
+
+          <ul class="list">
+
+            <li class="item item-toggle">
+              Maksymalna liczba sklepów
+              <label class="toggle toggle-positive">
+                <input type="checkbox" ng-model="optionsCtrl.SelectedProductsFactory.options.shopsCountRestrictionIsSet">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+              </label>
+            </li>
+            <label class="item item-input" ng-if="optionsCtrl.SelectedProductsFactory.options.shopsCountRestrictionIsSet">
+              <span class="input-label">Ilość sklepów</span>
+              <input type="text" ng-model="shopsCount" min="1" ng-change="optionsCtrl.SelectedProductsFactory.options.shopsCountRestrictionValue = shopsCount">
+            </label>
+
+            <li class="item item-toggle">
+              Maksymalna odległość
+              <label class="toggle toggle-positive">
+                <input type="checkbox" ng-model="optionsCtrl.SelectedProductsFactory.options.distanceRestrictionIsSet">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+              </label>
+            </li>
+            <label class="item item-input" ng-if="optionsCtrl.SelectedProductsFactory.options.distanceRestrictionIsSet">
+              <span class="input-label">Odległość</span>
+              <input type="text" ng-model="distance" min="1" ng-change="optionsCtrl.SelectedProductsFactory.options.distanceRestrictionValue = distance">
+            </label>
+
+          </ul>
+        </div>
+
+        <div class="list card">
+          <div class="item item-divider">
+            Inne
+          </div>
+
+          <ul class="list">
+
+            <li class="item item-toggle">
+              Uwzględniać rabaty
+              <label class="toggle toggle-positive">
+                <input type="checkbox" ng-model="optionsCtrl.SelectedProductsFactory.options.discount">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+              </label>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </ion-content>
+
+</ion-view>

@@ -9,9 +9,13 @@ function SearchProductsResource($resource) {
 
 	var resource = $resource(
 		'api/products/:searchKey', 
-		{ searchKey: "@searchKey" }, 
-		{ getArray: {
+		{ 
+			searchKey: "@searchKey" 
+		}, 
+		{ 	
+			getArray: {
         		method: 'GET',
+        		cache: true,
         		isArray: true
     		}
 		});

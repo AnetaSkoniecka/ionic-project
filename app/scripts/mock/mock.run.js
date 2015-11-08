@@ -45,6 +45,12 @@ function mockRun($httpBackend) {
 			console.log(type, path, data);
 			return [200, findAll()];
 		});
+
+	$httpBackend.whenPOST('api/optimize')
+		.respond(function (type, path, data) {
+			console.log(type, path, data);
+			return [200, optimizationResult()];
+		});
 		//
 
 	$httpBackend.whenGET(/app\/.*/).passThrough();
@@ -182,5 +188,21 @@ mock.selectedProducts = [
         });
         return results;
     };
+
+    function optimizationResult() {
+    	sleep(3000);
+    	return [
+    		{"aa":"aa"}
+    	];
+    }
+
+    function sleep(milliseconds) {
+	  var start = new Date().getTime();
+	  for (var i = 0; i < 1e7; i++) {
+	    if ((new Date().getTime() - start) > milliseconds){
+	      break;
+	    }
+	  }
+	}
 
     

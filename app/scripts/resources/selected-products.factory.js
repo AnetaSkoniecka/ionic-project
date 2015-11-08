@@ -10,13 +10,13 @@ function SelectedProductsFactory() {
 	var factory = this;
 	factory.selectedProducts = [];
 	factory.options = {};
-	factory.options.delivery = "";
+	factory.options.delivery = "deliveryHome"; /* {deliveryHome/deliveryOwn} */
 	factory.options.discount = false;
-	factory.options.shopsCountRestriction = {};
-	factory.options.shopsCountRestriction.isSet = false;
-	factory.options.shopsCountRestriction.value = 0;
-	factory.options.distanceRestriction.isSet = false;
-	factory.options.distanceRestriction.value = 0;
+	factory.options.shopsCountRestrictionValue = 0;
+	factory.options.shopsCountRestrictionIsSet = false;
+	factory.options.distanceRestrictionValue = 0;
+	factory.options.distanceRestrictionIsSet = false;
+	factory.options.discount = false;
 
 	factory.addProduct = function(product) {
 		var repeat = _.findWhere(factory.selectedProducts, { 'id': product.id });
@@ -45,14 +45,21 @@ function SelectedProductsFactory() {
 		factory.options.discount = isUsingDiscount;
 	}
 
-	factory.setShopsCountRestriction = function(isSet, value) {
-		factory.options.shopsCountRestriction.isSet = isSet;
-
+	factory.setShopsCountRestriction = function(value) {
 		if(!angular.isUndefined(value) && angular.isNumber(value) && value > 0) {
-			factory.options.shopsCountRestriction.value = value;
+			factory.options.shopsCountRestrictionValue = value;
 		}
 		else {
-			factory.options.shopsCountRestriction.value = 0;
+			factory.options.shopsCountRestrictionValue = 0;
+		}
+	}
+
+	factory.setDistanceRestriction = function(value) {
+		if(!angular.isUndefined(value) && angular.isNumber(value) && value > 0) {
+			factory.options.distanceRestrictionValue = value;
+		}
+		else {
+			factory.options.distanceRestrictionValue = 0;
 		}
 	}
 

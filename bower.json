@@ -9,7 +9,8 @@
     "ngCordova": "~0.1.17-alpha",
     "angular-resource": "~1.4.3",
     "lodash": "~3.10.0",
-    "angular-mocks": "~1.4.7"
+    "angular-mocks": "~1.4.7",
+    "angular-loading-bar": "~0.8.0"
   },
   "resolutions": {
     "angular": "~1.4.3"
