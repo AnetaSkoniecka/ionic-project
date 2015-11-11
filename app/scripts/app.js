@@ -14,7 +14,7 @@ angular.module('Rolnik', [
   'ionic', 
   'ngCordova', 
   'ion-fab-button', 
-  'rolnikMock',
+  // 'rolnikMock',
   'rolnikResources',
   'angular-loading-bar'
 ]);

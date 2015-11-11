@@ -15,8 +15,8 @@ angular.module('Rolnik')
   // development
   .constant('API_ENDPOINT', {
     host: 'http://localhost',
-    port: 3000,
-    path: '',
+    port: 8080,
+    path: '/api',
     needsAuth: false
   });
 

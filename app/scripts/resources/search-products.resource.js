@@ -1,14 +1,14 @@
 'use strict';
-angular.module('rolnikResources')
+angular.module('Rolnik')
     .factory('SearchProductsResource', SearchProductsResource);
 
 /*
 * ngInject
 */
-function SearchProductsResource($resource) {
+function SearchProductsResource($resource, ApiService) {
 
 	var resource = $resource(
-		'api/products/:searchKey', 
+		ApiService.getEndpoint() + '/products/:searchKey', 
 		{ 
 			searchKey: "@searchKey" 
 		}, 

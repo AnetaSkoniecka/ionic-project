@@ -9,7 +9,7 @@
  * Uses settings from API_ENDPOINT defined in /config/apiEndpoint.js
  *
  * Usage example: $http({
- *                      url: ApiService.getEndPoint() + '/things',
+ *                      url: ApiService.getEndpoint() + '/things',
  *                      method: 'GET'
  *                 })
  *
