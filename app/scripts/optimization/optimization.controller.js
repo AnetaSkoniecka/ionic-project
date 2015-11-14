@@ -19,7 +19,7 @@ function OptimizationController(OptimizationResult) {
 	activate();
 
     function activate() {
-    	console.log(OptimizationResult)
+    	// console.log(OptimizationResult)
     }
 
 }
