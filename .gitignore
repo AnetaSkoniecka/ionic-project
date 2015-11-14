@@ -11,3 +11,6 @@ www/
 .sass-cache
 *.DS_Store
 *.log
+backend/.idea
+backend/.mvn
+target/
