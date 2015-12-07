@@ -14,7 +14,7 @@ angular.module('Rolnik')
 	.config(function($httpProvider, $stateProvider, $urlRouterProvider) {
 	    // register $http interceptors, if any. e.g.
 	    // $httpProvider.interceptors.push('interceptor-name');
-	    $httpProvider.interceptors.push('LoadingInterceptor');
+	    // $httpProvider.interceptors.push('LoadingInterceptor');
 
 	    // Application routing
 	    $stateProvider

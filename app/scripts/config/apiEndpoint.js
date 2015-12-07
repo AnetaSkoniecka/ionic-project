@@ -13,12 +13,12 @@
 angular.module('Rolnik')
 
   // development
-  .constant('API_ENDPOINT', {
-    host: 'http://localhost',
-    port: 8080,
-    path: '/api',
-    needsAuth: false
-  });
+  // .constant('API_ENDPOINT', {
+  //   host: 'http://localhost',
+  //   port: 8080,
+  //   path: '/api',
+  //   needsAuth: false
+  // });
 
 
   // live example with HTTP Basic Auth
@@ -31,4 +31,13 @@ angular.module('Rolnik')
     password: 'foobar'
   });
   */
+
+  // live example 
+  .constant('API_ENDPOINT', {
+    host: 'http://rolnik-opt.cloudapp.net',
+    port: 8080,
+    path: '/api',
+    needsAuth: false
+  });
+  
 
