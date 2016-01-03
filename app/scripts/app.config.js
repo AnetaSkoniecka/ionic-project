@@ -72,16 +72,16 @@ angular.module('Rolnik')
 	          }
 	        }
 	    })
-	    .state('ionic.options', {
-	        url: '/options',
-	        cache: true,
-	        views: {
-	          'viewContent': {
-	            templateUrl: 'templates/options/options.html',
-	            controller: 'OptionsController as optionsCtrl'
-	          }
-	        }
-	    })
+	    // .state('ionic.options', {
+	    //     url: '/options',
+	    //     cache: true,
+	    //     views: {
+	    //       'viewContent': {
+	    //         templateUrl: 'templates/options/options.html',
+	    //         controller: 'OptionsController as optionsCtrl'
+	    //       }
+	    //     }
+	    // })
 	    .state('ionic.optimization', {
 	        url: '/optimization',
 	        views: {
@@ -91,9 +91,8 @@ angular.module('Rolnik')
 	          }
 	        },
 	        resolve: {
-	    		OptimizationResult: function(OptimizationResource, SelectedProductsFactory, $http) {
-	    			return OptimizationResource.optimize(null,SelectedProductsFactory.getOptimizationConfiguration());
-	    			// return $http.get('http://jsonplaceholder.typicode.com/posts/1');
+	    		OptimizationResult: function(OptimizationResource, SelectedProductsFactory) {
+	    			return OptimizationResource.optimize(null,SelectedProductsFactory.getOptimizationConfiguration()).$promise;
 	    		}
 	    	}
 	    });

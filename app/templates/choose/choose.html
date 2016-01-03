@@ -5,8 +5,8 @@
     </ion-nav-title>
 
     <ion-nav-buttons side="primary">
-      <button class="button button-clear button-small" ui-sref="ionic.options">
-        Dalej
+      <button class="button button-clear button-small" ui-sref="ionic.optimization">
+        Optymalizuj
       </button>
     </ion-nav-buttons>
 
@@ -19,13 +19,13 @@
         <div class="card" ng-repeat="product in chooseCtrl.selectedProducts" ng-init="product.count = 1">
           <div class="item item-text-wrap">
             <div class="card-header">
-              <h3>{{product.name}} <small>({{product.unit}})</small></h3>
+              <h3>{{product.name}} <!-- <small>({{product.unit}})</small> --></h3>
               <div class="card-header-icons">
                 <a class="button button-small button-icon icon ion-trash-b assertive icon-custom-md" ng-click="chooseCtrl.deleteProduct(product)"></a>
                 <a class="button button-small button-icon icon ion-gear-a dark icon-custom-md ng-hide"></a>
               </div>
             </div>
-            <div class="counts-container">
+<!--             <div class="counts-container">
               <p ng-class="{'cound-danger': product.count > 10}">{{product.count}} szt.</p>
               <div class="buttons-wrapper">
                 <button class="button button-small button-clear" ng-click="chooseCtrl.addCount(product)">
@@ -35,7 +35,7 @@
                   <i class="icon ion-minus-round"></i>
                 </button>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 

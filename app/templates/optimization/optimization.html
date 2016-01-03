@@ -7,43 +7,62 @@
     <ion-content>
       <div id="optimizationTemplate" class="">
         
-        <div class="card">
+        <div class="card" ng-if="optimizationCtrl.OptimizationResult.optimizedShopList.length > 0">
         	<div class="item item-divider">
 		    	Podsumowanie
 		  	</div>
 	        <ul class="list">
 			    <li class="item">
-			    	Koszt zakupu: <span class="positive">{{optimizationCtrl.OptimizationResult.purchasingCost}}</span>
+			    	Łączny koszt produktów: <span class="positive">{{::optimizationCtrl.OptimizationResult.purchasingCost | number:2}} zł</span>
 			    </li>
 			    <li class="item">
-			    	Koszt dostawy: <span class="positive">{{optimizationCtrl.OptimizationResult.deliveryCost}}</span>
+			    	Łączny koszt dostaw: <span class="positive">{{::optimizationCtrl.OptimizationResult.deliveryCost | number:2}} zł</span>
 			    </li>
 			    <li class="item">
-			    	Łączna odległość: <span class="positive">{{optimizationCtrl.OptimizationResult.totalDistance}}</span>
-			    </li>
-			    <li class="item">
-			    	Ilość sklepów: <span class="positive">{{optimizationCtrl.OptimizationResult.totalShops}}</span>
+			    	Cały koszt: <span class="positive">{{::(optimizationCtrl.OptimizationResult.purchasingCost + optimizationCtrl.OptimizationResult.deliveryCost) | number:2}} zł</span>
 			    </li>
 			</ul>
 		</div>
 
-		<div class="card" ng-repeat="shop in optimizationCtrl.OptimizationResult.shops">
+		<div class="card" ng-if="optimizationCtrl.OptimizationResult.optimizedProductList.length > 0">
         	<div class="item item-divider">
-		    	{{shop.shopName}}
-		    	<span class="price">łącznie: {{shop.purchasingCost}}zł</span>
+		    	Znalezione produkty
 		  	</div>
 	        <ul class="list">
-	    		<li class="item" ng-repeat="product in shop.products">
-	    			<span class="name">{{product.name}} <small>(szt. {{product.count}})</small></span>
-					<span class="price">{{product.cost}}zł</span>
+			    <li class="item" ng-repeat="optimizedProduct in optimizationCtrl.OptimizationResult.optimizedProductList">
+			    	{{::optimizedProduct.name}} <span class="positive">{{::optimizedProduct.price | number:2}} zł</span>
+			    </li>
+			</ul>
+		</div>
+
+		<div class="card" ng-if="optimizationCtrl.OptimizationResult.missedProductList.length > 0">
+        	<div class="item item-divider">
+		    	Nie znalezione produkty
+		  	</div>
+	        <ul class="list">
+			    <li class="item" ng-repeat="missedProduct in optimizationCtrl.OptimizationResult.missedProductList">
+			    	{{::missedProduct.name}}
+			    </li>
+			</ul>
+		</div>
+
+		<div class="content" ng-if="!optimizationCtrl.OptimizationResult.optimizedShopList.length || optimizationCtrl.OptimizationResult.optimizedShopList.length == 0"><h4>Nie udało się dokonać optymalizacji</h4></div>
+
+		<div class="card" ng-repeat="shop in optimizationCtrl.OptimizationResult.optimizedShopList" ng-if="shop.optimizedProductList.length > 0">
+        	<div class="item item-divider">
+		    	Sklep: {{::shop.name}}
+		    	<span class="price">dostawa: {{::shop.delivery | number:2}} zł</span>
+		  	</div>
+	        <ul class="list">
+	    		<li class="item" ng-repeat="product in shop.optimizedProductList">
+	    			<span class="name">{{::product.name}}</span>
+					<span class="price">{{::product.price | number:2}}zł</span>
 			    </li>
 			</ul>
 			<div class="item item-divider">
-			    odległość/dostawa: <span class="price">{{shop.totalDistance}}km/{{shop.deliveryCost}}zł</span>
+			    <span class="price">łącznie koszt:  {{::shop.total | number:2}} zł</span>
 			</div>
 		</div>
-
-
 
       </div>
     </ion-content>

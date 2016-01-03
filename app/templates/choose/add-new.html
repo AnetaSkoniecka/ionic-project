@@ -23,11 +23,11 @@
           </div>
       </div>
       <ion-list>
-          <ion-item ng-repeat="product in newCtrl.foundProducts" type="item-text-wrap" href="#/product/{{product.id}}">
+          <ion-item ng-repeat="product in newCtrl.foundProducts" type="item-text-wrap">
             <div class="choose-product-item">
               <div class="choose-product-item-text">
-                <h3>{{product.name}} ({{product.unit}})</h3>
-                <p>podtytuł</p>
+                <h3>{{product.name}}<!--  ({{product.unit}}) --></h3>
+                <!-- <p>podtytuł</p> -->
               </div>
               <a class="button button-small button-icon positive icon ion-plus icon-custom-sm" ng-click="newCtrl.addSelectedProduct(product)"></a>
             </div>

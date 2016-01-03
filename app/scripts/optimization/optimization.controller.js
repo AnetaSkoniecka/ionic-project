@@ -17,9 +17,7 @@ function OptimizationController(OptimizationResult) {
 	//methods
 
 	activate();
-
     function activate() {
-    	// console.log(OptimizationResult)
     }
 
 }

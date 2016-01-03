@@ -32,7 +32,7 @@ angular.module('Rolnik')
   });
   */
 
-  // live example 
+  // production 
   .constant('API_ENDPOINT', {
     host: 'http://rolnik-opt.cloudapp.net',
     port: 8080,

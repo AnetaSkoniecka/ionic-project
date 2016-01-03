@@ -64,13 +64,7 @@ function SelectedProductsFactory() {
 
 	factory.getOptimizationConfiguration = function() {
 		var data = {
-			productsId: _.pluck(factory.selectedProducts, 'id'),
-			delivery: factory.options.delivery,
-			discount: factory.options.discount,
-			shopsCountRestrictionValue: factory.options.shopsCountRestrictionValue,
-			shopsCountRestrictionIsSet: factory.options.shopsCountRestrictionIsSet,
-			distanceRestrictionValue: factory.options.distanceRestrictionValue,
-			distanceRestrictionIsSet: factory.options.distanceRestrictionIsSet
+			productsId: _.pluck(factory.selectedProducts, 'id')
 		};
 		return data;
 	}
