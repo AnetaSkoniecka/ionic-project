@@ -1,1 +1,3 @@
 https://github.com/tmaximini/ionic-gulp-seed
+
+cordova plugin add cordova-plugin-whitelist
