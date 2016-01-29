@@ -7,12 +7,18 @@
  * # StartController
  */
 angular.module('Rolnik')
-  .controller('StartController', function($scope) {
+  .controller('StartController', function($scope, $http) {
 
     // do something with $scope
     var vm = this;
 
     this.auth = auth;
+
+    $http.get("http://httpbin.org/ip ").success(function(data) {
+    	vm.a = data.origin;
+    }).error(function(data) {
+    	vm.a = data;
+    })
 
     function auth() {
     	console.log("a");
@@ -27,6 +33,7 @@ angular.module('Rolnik')
 	    };
 	    var s = document.getElementsByTagName('script')[0];
 	    s.parentNode.insertBefore(tk, s);
+
 
 	}
 

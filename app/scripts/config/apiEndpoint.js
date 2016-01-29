@@ -12,15 +12,6 @@
 
 angular.module('Rolnik')
 
-  // development
-  // .constant('API_ENDPOINT', {
-  //   host: 'http://localhost',
-  //   port: 8080,
-  //   path: '/api',
-  //   needsAuth: false
-  // });
-
-
   // live example with HTTP Basic Auth
   /*
   .constant('API_ENDPOINT', {
@@ -31,6 +22,14 @@ angular.module('Rolnik')
     password: 'foobar'
   });
   */
+
+  // development
+  // .constant('API_ENDPOINT', {
+  //   host: 'http://localhost',
+  //   port: 8080,
+  //   path: '/api',
+  //   needsAuth: false
+  // });
 
   // production 
   .constant('API_ENDPOINT', {
